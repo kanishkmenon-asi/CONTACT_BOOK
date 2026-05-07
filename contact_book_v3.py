@@ -54,6 +54,17 @@ def delete_contacts(contacts):
         print(f"{del_name} does not exist in the contacts.")
     return contacts
 
+def edit_contacts(contacts):
+    user_edit = str(input("Name of contact to edit:"))
+    if user_edit in contacts:
+        new_phone = str(input("New phone number:"))
+        contacts[user_edit]["phone"] = new_phone
+        with open("contact_book.txt","w") as file:
+            json.dump(contacts,file)
+        print(f"{user_edit}'s contact has been updated.")
+    else:
+        print(f"{user_edit} does not exist in the contacts.")
+
 # 2. LOAD FILE
 try:
     with open("contact_book.txt","r") as file:
@@ -69,8 +80,9 @@ while True:
     print("1.ADD NEW CONTACT")
     print("2.VIEW CONTACTS")
     print("3.SEARCH CONTACT")
-    print("4.DELETE CONTACT")
-    print("5.EXIT")
+    print("4.EDIT CONTACT")
+    print("5.DELETE CONTACT")
+    print("6.EXIT")
     user_input = int(input("\nChoose an option (1-5): "))
 
     if user_input == 1:
@@ -80,6 +92,8 @@ while True:
     elif user_input == 3:
         contacts = search_contacts(contacts)
     elif user_input == 4:
-        contacts = delete_contacts(contacts)
+        contacts = edit_contacts(contacts)
     elif user_input == 5:
+        contacts = delete_contacts(contacts)
+    elif user_input == 6:
         exit()
