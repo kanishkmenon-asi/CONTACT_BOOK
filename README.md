@@ -1,6 +1,11 @@
 # CONTACT_BOOK
 
 In this project of CONTACT BOOK has 2 versions in which one is a normal version in whcich we used the simple basic logic .
+This USES CRUD application
+Create — add
+Read — view
+Update — edit
+Delete — delete
 
 #CONTACT_BOOK V2
 
